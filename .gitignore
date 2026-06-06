@@ -1,0 +1,17 @@
+venv/
+env/
+.env
+__pycache__/
+*.py[cod]
+*$py.class
+images/*
+!images/.gitkeep
+salidas_costmap/
+runs/
+yolov8n.pt
+yolov8s.pt
+yolov8m.pt
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
