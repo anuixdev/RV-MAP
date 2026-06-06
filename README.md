@@ -11,6 +11,16 @@ RV-MAP es una arquitectura algorítmica de visión computacional diseñada para 
 * **Auditoría Visual:** Proyección de contornos geométricos sobre la matriz de transitabilidad para validación táctica humana.
 * **Despliegue Interactivo:** Interfaz de línea de comandos (CLI) parametrizable y optimizada para operar en plataformas de *Edge Computing*.
 
+## Documentación Técnica y Flujo de Procesamiento
+
+La arquitectura opera mediante un conducto (*pipeline*) secuencial que transforma la captura óptica bruta en un plano de decisión matricial.
+
+* **Ingesta de Datos (Input):** El motor admite ortofotos o capturas cenitales en formatos de imagen estándar (`PNG`, `JPG`, `JPEG`). Para mantener la integridad topológica, se exige una resolución que permita distinguir características métricas del terreno.
+* **Procesamiento Tensorial:** La red neuronal convolucional escruta el fotograma para extraer los contornos poligonales y generar máscaras binarias sobre los píxeles clasificados como entidades de alto riesgo.
+* **Operaciones Morfológicas:** Sobre la segmentación resultante, se aplica un núcleo de convolución (*kernel*) cuyo diámetro de acción se define paramétricamente. Este paso dilata las dimensiones geométricas de los obstáculos, inyectando un margen de seguridad equivalente a la anchura del vehículo de rescate.
+* **Exportación Matricial (Output):** El sistema sintetiza un mapa de transitabilidad y lo almacena en el disco local de forma asíncrona. Si la bandera de auditoría está activa, superpone adicionalmente el cálculo sobre el entorno original.
+* **Aceleración por Hardware:** El núcleo algorítmico detecta de forma automática la disponibilidad de unidades de procesamiento tensorial (núcleos CUDA) en el sistema anfitrión. En caso de carencia, el motor conmuta internamente a la ejecución secuencial en hilos de CPU sin interrumpir el flujo logístico.
+
 ## Despliegue del Entorno Computacional
 
 Para instanciar el entorno de ejecución, se recomienda aislar las dependencias mediante un entorno virtual (`venv` o `conda`). Ejecute los siguientes comandos en la terminal de su sistema:
