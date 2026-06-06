@@ -16,9 +16,22 @@ RV-MAP es una arquitectura algorítmica de visión computacional diseñada para 
 Para instanciar el entorno de ejecución, se recomienda aislar las dependencias mediante un entorno virtual (`venv` o `conda`). Ejecute los siguientes comandos en la terminal de su sistema:
 
 ```bash
-# 1. Clonar el repositorio
-git clone [https://github.com/TU_USUARIO/RV-MAP.git](https://github.com/TU_USUARIO/RV-MAP.git)
+# 1. Clonar el repositorio (via HTTP)
+git clone https://github.com/anuixdev/RV-MAP.git
 cd RV-MAP
 
-# 2. Instalar dependencias matriciales y de aprendizaje profundo
+# 1'. Clonar el repositorio (via SSH)
+git@github.com:anuixdev/RV-MAP.git
+cd RV-MAP
+
+# 2. Crear el entorno virtual (denominado 'venv')
+python -m venv venv
+
+# 3. Activar el entorno virtual
+# -> En sistemas Windows (Command Prompt o PowerShell):
+.\venv\Scripts\activate
+# -> En sistemas basados en Unix (Linux / macOS):
+source venv/bin/activate
+
+# 4. Instalar dependencias matriciales y de aprendizaje profundo
 pip install -r requirements.txt
