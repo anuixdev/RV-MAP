@@ -2,7 +2,7 @@
 
 **Sistema de Mapeo por Visión de Rescate y Análisis de Transitabilidad**
 
-RV-MAP es una arquitectura algorítmica de visión computacional diseñada para el soporte logístico en entornos colapsados. El núcleo de *software* ingesta telemetría óptica capturada por vehículos aéreos no tripulados (UAV) y, mediante inferencia tensorial basada en YOLOv8, segmenta las estructuras destruidas, vehículos y escombros. Posteriormente, aplica operaciones de dilatación morfológica para generar mapas de costes bidimensionales que delimitan las áreas de tránsito seguro frente a zonas de exclusión.
+RV-MAP es una arquitectura algorítmica de visión computacional diseñada para el soporte logístico en entornos colapsados. El núcleo de *software*, la entrada de datos ópticos capturada por vehículos aéreos no tripulados (UAV) y, mediante inferencia tensorial basada en YOLOv8, segmenta las estructuras destruidas, vehículos y escombros. Posteriormente, aplica operaciones de dilatación morfológica para generar mapas de costes bidimensionales que delimitan las áreas de tránsito seguro frente a zonas de exclusión.
 
 ## Características Técnicas
 
@@ -15,7 +15,7 @@ RV-MAP es una arquitectura algorítmica de visión computacional diseñada para 
 
 La arquitectura opera mediante un conducto (*pipeline*) secuencial que transforma la captura óptica bruta en un plano de decisión matricial.
 
-* **Ingesta de Datos (Input):** El motor admite ortofotos o capturas cenitales en formatos de imagen estándar (`PNG`, `JPG`, `JPEG`). Para mantener la integridad topológica, se exige una resolución que permita distinguir características métricas del terreno.
+* **Entrada de Datos (Input):** El motor admite ortofotos o capturas cenitales en formatos de imagen estándar (`PNG`, `JPG`, `JPEG`). Para mantener la integridad topológica, se exige una resolución que permita distinguir características métricas del terreno.
 * **Procesamiento Tensorial:** La red neuronal convolucional escruta el fotograma para extraer los contornos poligonales y generar máscaras binarias sobre los píxeles clasificados como entidades de alto riesgo.
 * **Operaciones Morfológicas:** Sobre la segmentación resultante, se aplica un núcleo de convolución (*kernel*) cuyo diámetro de acción se define paramétricamente. Este paso dilata las dimensiones geométricas de los obstáculos, inyectando un margen de seguridad equivalente a la anchura del vehículo de rescate.
 * **Exportación Matricial (Output):** El sistema sintetiza un mapa de transitabilidad y lo almacena en el disco local de forma asíncrona. Si la bandera de auditoría está activa, superpone adicionalmente el cálculo sobre el entorno original.
