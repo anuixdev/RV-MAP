@@ -34,7 +34,7 @@ def crear_carpeta_ejecucion(base_salidas: Path) -> Path:
 # 2. GENERACIÓN DE KERNEL CÓNICO
 # ─────────────────────────────────────────────────────────────────────────────
 def obtener_kernel_conico(radio):
-    """Crea una matriz cuadrada donde los valores decaen linealmente desde el centro."""
+    """Crea una matriz cuadrada donde los valores decaen linealmente desde el centro"""
     y, x = np.ogrid[-radio:radio+1, -radio:radio+1]
     distancia = np.sqrt(x**2 + y**2)
     kernel = np.maximum(0, 1 - (distancia / radio))
@@ -73,7 +73,7 @@ def generar_mapa_bicolor(ruta_imagen: Path, model: YOLO, carpeta_salida: Path, r
 
             peso_asignado = PESOS.get(id_clase, 0.5)
             mapa_pesos_nitido[mask_bool] = peso_asignado
-            if id_clase in [5, 6, 8]:
+            if id_clase in [5, 6, 9]:
                 mascara_para_inflar[mask_bool] = 1.0
             if peso_asignado < 0.4: 
                 mascara_transitable[mask_bool] = True
