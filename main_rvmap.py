@@ -115,7 +115,7 @@ def main():
     parser = argparse.ArgumentParser(description="RV-MAP: Kernel Cónico")
     parser.add_argument("--input", "-i", type=str, default="input_dron", help="Carpeta de entrada.")
     parser.add_argument("--output", "-o", type=str, default="output_mapas", help="Carpeta de salida.")
-    parser.add_argument("--model", "-m", type=str, default="modelos/model_D/weights/best.pt", help="Modelo YOLO.")
+    parser.add_argument("--model", "-m", type=str, default="modelos/model_C/weights/best.pt", help="Modelo YOLO.")
     parser.add_argument("--radio", "-r", type=int, default=100, help="Radio del cono en px.")
     parser.add_argument("--show", action="store_true", default=False, help="Mostrar el área de interés (vehículos).")
     args = parser.parse_args()
