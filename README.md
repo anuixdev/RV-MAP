@@ -45,3 +45,6 @@ source venv/bin/activate
 
 # 4. Instalar dependencias matriciales y de aprendizaje profundo
 pip install -r requirements.txt
+
+# 5. Comando para ejecutar y ver resultados:
+python main_rvmap.py --args (-i, -o, -m, -r, --show)
